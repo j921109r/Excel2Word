@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\j9211\Desktop\backup\Excel2Word\Main.ui'
+# Form implementation generated from reading ui file 'e:\Workspace\Excel2Word\Main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -47,6 +47,9 @@ class Ui_MainWindow(object):
         self.Button_GO = QtWidgets.QPushButton(self.centralwidget)
         self.Button_GO.setObjectName("Button_GO")
         self.gridLayout.addWidget(self.Button_GO, 4, 1, 1, 1)
+        self.checkBox_PDF = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_PDF.setObjectName("checkBox_PDF")
+        self.gridLayout.addWidget(self.checkBox_PDF, 3, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 22))
@@ -73,3 +76,4 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'Microsoft JhengHei UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Idle ....</p></body></html>"))
         self.Button_GO.setText(_translate("MainWindow", "Go"))
+        self.checkBox_PDF.setText(_translate("MainWindow", "Output PDF"))

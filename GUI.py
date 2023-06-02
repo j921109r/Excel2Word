@@ -9,6 +9,8 @@ import docx
 from docx import Document
 from docx.shared import Pt,Cm
 from docxcompose.composer import Composer
+from docx2pdf import convert
+import win32com.client
 
 from Main_ui import Ui_MainWindow
 import traceback,sys
@@ -81,8 +83,12 @@ class MainUi(QtWidgets.QMainWindow, Ui_MainWindow):
                     if('袁子英'in para.runs[i].text):
                         para.runs[i].text = para.runs[i].text.replace('袁子英', data_detail['個案姓名'])
                     # replace address
+                    
                     if('吉仁里3鄰南榮路'in para.runs[i].text):
-                        para.runs[i].text = para.runs[i].text.replace('吉仁里3鄰南榮路', data_detail['戶籍地址'])    
+                        if ('戶籍村里'in data[0].keys()):                        
+                            para.runs[i].text = para.runs[i].text.replace('吉仁里3鄰南榮路', data_detail['戶籍村里']+data_detail['戶籍地址'])    
+                        else:
+                            para.runs[i].text = para.runs[i].text.replace('吉仁里3鄰南榮路', data_detail['戶籍地址'])    
 
             # add to com_doc
             com_doc.append(doc)
@@ -90,11 +96,22 @@ class MainUi(QtWidgets.QMainWindow, Ui_MainWindow):
             
             output_name = self.lineEdit_name.text()
             if output_name =='':
-                output_name='sample'
+                output_name=f'{os.path.splitext(os.path.basename(self.Excel_path))[0]}'
             
             com_doc.save(f'./{output_name}.docx')
-            self.textBrowser.setText("OK~")
-            pass
+        
+        if (self.checkBox_PDF.isChecked()):
+            file = open(f'./{output_name}.pdf', "w")
+            file.close()
+            convert(f'./{output_name}.docx',f'./{output_name}.pdf')
+        # word = win32com.client.Dispatch('Word.Application')
+        # doc = word.Documents.Open(f'./{output_name}.docx')
+        # wdFormatPDF = 17
+        # doc.SaveAs(f'./{output_name}.pdf', FileFormat=wdFormatPDF)
+        # doc.Close()
+        # word.Quit()
+        self.textBrowser.setText("OK~")
+        pass
     
     
 def run_app():

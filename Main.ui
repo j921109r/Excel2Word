@@ -115,6 +115,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
       </property>
      </widget>
     </item>
+    <item row="3" column="1">
+     <widget class="QCheckBox" name="checkBox_PDF">
+      <property name="text">
+       <string>Output PDF</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
