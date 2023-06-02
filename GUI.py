@@ -1,8 +1,8 @@
 
-from PyQt6 import QtWidgets, QtCore, QtGui
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import *
-from PyQt6.QtGui import QAction
+from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import *
+# from PyQt5.QtGui import QAction
 
 import xlrd
 import docx
